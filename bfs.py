@@ -67,5 +67,4 @@ for i in letters:
 edges = ["AB", "AE", "BE", "BF", "CG", "DE", "DH", "EF", "FG", "FH", "FJ", "GJ", "HI"]
 for edge in edges:
     g.add_edge(edge[:1], edge[1:])
-g.bfs(a)
-g.print_graph()
+farts = [['P', 'A', 'H', 'N'], ['A', 'P', 'L', 'S', 'I', 'I', 'G'], ['Y', 'I', 'R']]
