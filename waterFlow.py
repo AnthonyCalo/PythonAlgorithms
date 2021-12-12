@@ -3,6 +3,7 @@ def pacificAtlantic(heights):
         :type heights: List[List[int]]
         :rtype: List[List[int]]
         """
+        print(heights)
         m,n = len(heights), len(heights[0])
         visited_pacific = []
         visited_atlantic = []
