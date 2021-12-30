@@ -1,32 +1,23 @@
 class Solution:
+    #solution is recursive fucnction. 
+    #basically at each item in matrix if it is equal to 1 calls a function that turns every other item 
+    # in that isalnd into a #. So for each isalnd it adds 1 to the num of islands
     def numIslands(self, grid: List[List[str]]) -> int:
         m,n=len(grid), len(grid[0])
-        visited = []
         output=0
         def dfs(row, column):
-            if(grid[row][column]=="0"):
+            if(row<0 or column<0 or row>=m or column>=n or grid[row][column]!="1"):
                 return
-            if(grid[row][column]=="1" and [row, column] not in visited):
-                visited.append([row,column])
-            else:
-                return
-            up = [row-1, column]
-            down = [row+1, column]
-            left = [row, column-1]
-            right = [row, column+1]
-            neighbors=[up, down, left, right]
-            for i in neighbors:
-                if(i[0]<0 or i[1]<0 or i[0]>=m or i[1]>=n or i in visited):
-                    continue
-                else:
-                    dfs(i[0],i[1])
-        for row in range(len(grid)):
-            for column in range(len(grid[row])):
-                if([row, column] in visited or grid[row][column]=="0"):
-                    continue
-                if(grid[row][column]=="1"):
+            grid[row][column] = '#'
+            dfs(row+1, column)
+            dfs(row-1, column)
+            dfs(row, column+1)
+            dfs(row, column-1)
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if( grid[i][j]=="1" ):
                     output+=1
-                    dfs(row, column)
+                    dfs(i,j)
         return(output)
 '''
 Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
