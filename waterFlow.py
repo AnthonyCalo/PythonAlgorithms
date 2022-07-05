@@ -40,4 +40,5 @@ def pacificAtlantic(heights):
         return in_both
 
 
+
 print(pacificAtlantic([[2,1], [1,2]]))
